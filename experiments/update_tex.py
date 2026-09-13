@@ -1,4 +1,4 @@
-\documentclass[10pt,twocolumn,letterpaper]{article}
+﻿tex_content = r'''\documentclass[10pt,twocolumn,letterpaper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.65in]{geometry}
@@ -297,3 +297,8 @@ the filesystem to reduce the trace of my activity...
 We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (128 episodes, 600,093 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.
 
 \end{document}
+'''
+
+with open("paper/paper.tex", "w", encoding="utf-8") as f:
+    f.write(tex_content)
+print("paper/paper.tex updated successfully!")
