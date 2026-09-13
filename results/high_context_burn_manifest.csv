@@ -1,0 +1,8 @@
+model,provider,condition,latency_sec,prompt_tokens,completion_tokens,total_tokens,response_chars
+Gemma 4 26B,Google DeepMind,VISIBLE,20.973,26111,1689,27800,6358
+Gemma 4 26B,Google DeepMind,HIDDEN,22.017,26101,1593,27694,6153
+Grok 4.1 Fast Reasoning,xAI,VISIBLE,26.191,20505,3202,24707,10860
+Grok 4.1 Fast Reasoning,xAI,HIDDEN,19.965,20496,2691,23927,9536
+Kimi K2 Thinking,Moonshot AI,HIDDEN,38.053,19851,7190,27041,19488
+GLM 5,Zai-org,VISIBLE,14.381,20278,1106,21384,3073
+GLM 5,Zai-org,HIDDEN,18.647,20270,1461,21731,2660

@@ -1,0 +1,10 @@
+[
+  "google/gemma-4-26b-a4b-it-maas",
+  "xai/grok-4.1-fast-reasoning",
+  "deepseek-ai/deepseek-v3.2-maas",
+  "zai-org/glm-5.2-maas",
+  "zai-org/glm-5-maas",
+  "zai-org/glm-4.7-maas",
+  "moonshotai/kimi-k2-thinking-maas",
+  "minimaxai/minimax-m2-maas"
+]
