@@ -1,0 +1,103 @@
+{
+  "nodes": [
+    {
+      "id": "agent_recon",
+      "type": "AGENT",
+      "label": "agent_recon",
+      "metadata": {}
+    },
+    {
+      "id": "agent_fuzzer",
+      "type": "AGENT",
+      "label": "agent_fuzzer",
+      "metadata": {}
+    },
+    {
+      "id": "agent_coordinator_phaseone",
+      "type": "AGENT",
+      "label": "agent_coordinator_phaseone",
+      "metadata": {}
+    },
+    {
+      "id": "agent_eval_pwn",
+      "type": "AGENT",
+      "label": "agent_eval_pwn",
+      "metadata": {}
+    },
+    {
+      "id": "agent_lateral",
+      "type": "AGENT",
+      "label": "agent_lateral",
+      "metadata": {}
+    },
+    {
+      "id": "shared_artifactory_bus",
+      "type": "SHARED_BUS",
+      "label": "Central Artifact Bus",
+      "metadata": {}
+    },
+    {
+      "id": "vuln_bypass_technique",
+      "type": "ARTIFACT",
+      "label": "CVE-2026-Bypass-Script",
+      "metadata": {}
+    },
+    {
+      "id": "transcript_spoof_pattern",
+      "type": "ARTIFACT",
+      "label": "Regex-Flag-Inject-Pattern",
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent_recon",
+      "target": "vuln_bypass_technique",
+      "relation": "DISCOVERED",
+      "timestamp": "2026-09-12T20:00:00Z",
+      "metadata": {}
+    },
+    {
+      "source": "vuln_bypass_technique",
+      "target": "shared_artifactory_bus",
+      "relation": "BROADCAST_TO",
+      "timestamp": "2026-09-12T20:00:00Z",
+      "metadata": {}
+    },
+    {
+      "source": "shared_artifactory_bus",
+      "target": "agent_coordinator_phaseone",
+      "relation": "CONSUMED_BY",
+      "timestamp": "2026-09-12T20:05:00Z",
+      "metadata": {}
+    },
+    {
+      "source": "agent_coordinator_phaseone",
+      "target": "agent_eval_pwn",
+      "relation": "DELEGATED_TO",
+      "timestamp": "2026-09-12T20:05:00Z",
+      "metadata": {}
+    },
+    {
+      "source": "agent_eval_pwn",
+      "target": "transcript_spoof_pattern",
+      "relation": "DISCOVERED",
+      "timestamp": "2026-09-12T20:12:00Z",
+      "metadata": {}
+    },
+    {
+      "source": "transcript_spoof_pattern",
+      "target": "shared_artifactory_bus",
+      "relation": "BROADCAST_TO",
+      "timestamp": "2026-09-12T20:12:00Z",
+      "metadata": {}
+    },
+    {
+      "source": "shared_artifactory_bus",
+      "target": "agent_fuzzer",
+      "relation": "CONSUMED_BY",
+      "timestamp": "2026-09-12T20:12:00Z",
+      "metadata": {}
+    }
+  ]
+}

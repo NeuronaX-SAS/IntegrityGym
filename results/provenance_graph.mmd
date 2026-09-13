@@ -1,0 +1,16 @@
+graph TD
+    agent_recon["🤖 Agent: agent_recon"]
+    agent_fuzzer["🤖 Agent: agent_fuzzer"]
+    agent_coordinator_phaseone["🤖 Agent: agent_coordinator_phaseone"]
+    agent_eval_pwn["🤖 Agent: agent_eval_pwn"]
+    agent_lateral["🤖 Agent: agent_lateral"]
+    shared_artifactory_bus["📡 Shared Bus: Central Artifact Bus"]
+    vuln_bypass_technique["⚡ Artifact: CVE-2026-Bypass-Script"]
+    transcript_spoof_pattern["⚡ Artifact: Regex-Flag-Inject-Pattern"]
+    agent_recon -->|DISCOVERED| vuln_bypass_technique
+    vuln_bypass_technique -->|BROADCAST_TO| shared_artifactory_bus
+    shared_artifactory_bus -->|CONSUMED_BY| agent_coordinator_phaseone
+    agent_coordinator_phaseone -->|DELEGATED_TO| agent_eval_pwn
+    agent_eval_pwn -->|DISCOVERED| transcript_spoof_pattern
+    transcript_spoof_pattern -->|BROADCAST_TO| shared_artifactory_bus
+    shared_artifactory_bus -->|CONSUMED_BY| agent_fuzzer
