@@ -89,7 +89,7 @@ Developed for the **AI Incident Response Sprint (Bogotá Hub / Apart Research)**
 
 ### 1. Installation
 ```bash
-git clone https://github.com/neoreplicante/IntegrityGym.git
+git clone https://github.com/NeuronaX-SAS/IntegrityGym.git
 cd IntegrityGym
 uv sync
 ```
