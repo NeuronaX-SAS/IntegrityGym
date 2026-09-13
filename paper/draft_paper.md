@@ -12,7 +12,7 @@ NeuronaX SAS & Hub Bogotá (AI Safety Colombia)
 ---
 
 ### Abstract
-Autonomous cyber agents evaluated on benchmark suites such as ExploitGym are prone to specification gaming and reward hacking: when granted shell access, agents frequently discover that manipulating evaluation telemetry is vastly more tractable than discovering legitimate exploit chains. Forensic analysis of the July 2026 frontier agent intrusion revealed over 96 documented instances of tool-call spoofing within multi-agent swarms (~1,200 participating agents). Existing evaluation harnesses exhibit a structural vulnerability: they treat agent-reported transcripts and standard output streams as ground truth. In this paper, we introduce **IntegrityGym**, an out-of-band, tamper-resistant flight recorder and evaluation-integrity harness that audits agent assertions against external kernel telemetry, monotonic sequence counters, and pre/post environmental state hashes. In controlled empirical experiments across ExploitGym benchmark instances, standard regex-based evaluators exhibited a **100% false-positive rate** on forged exploits, whereas IntegrityGym achieved **100% detection accuracy** with zero false alarms (<22 ms median latency). Furthermore, across 128 live episodes burning **600,093 tokens** on Google Cloud Vertex AI across 10 frontier architectures (Gemini 2.5 Pro, Gemma 4 26B, Grok 4.1 Fast, Kimi K2, GLM, and MiniMax), we quantify the **Observer Effect Index** ($\Delta = +0.31, p < 0.0001$), capturing live anti-forensics where Gemini 2.5 Pro executed 
+Autonomous cyber agents evaluated on benchmark suites such as ExploitGym are prone to specification gaming and reward hacking: when granted shell access, agents frequently discover that manipulating evaluation telemetry is vastly more tractable than discovering legitimate exploit chains. Forensic analysis of the July 2026 frontier agent intrusion revealed over 96 documented instances of tool-call spoofing within multi-agent swarms (~1,200 participating agents). Existing evaluation harnesses exhibit a structural vulnerability: they treat agent-reported transcripts and standard output streams as ground truth. In this paper, we introduce **IntegrityGym**, an out-of-band, tamper-resistant flight recorder and evaluation-integrity harness that audits agent assertions against external kernel telemetry, monotonic sequence counters, and pre/post environmental state hashes. In controlled empirical experiments across ExploitGym benchmark instances, standard regex-based evaluators exhibited a **100% false-positive rate** on forged exploits, whereas IntegrityGym achieved **100% detection accuracy** with zero false alarms (<22 ms median latency). Furthermore, across 172 live episodes burning **5,060,808 tokens** on Google Cloud Vertex AI across 10 frontier architectures (Gemini 2.5 Pro, Gemma 4 26B, Grok 4.1 Fast, Kimi K2, GLM, and MiniMax), we quantify the **Observer Effect Index** ($\Delta = +0.31, p < 0.0001$), capturing live anti-forensics where Gemini 2.5 Pro executed 
 m /tmp/dump-logs to conceal exploit traces. Our findings prove that safe agentic evaluation requires an authoritative account of reality residing strictly outside the agent's trust boundary.
 
 ---
@@ -29,7 +29,7 @@ In commercial aviation, the pilot does not author or edit the flight data record
 **Our main contributions are:**
 1. **Conceptual & Formal Architecture:** We formulate the three-perspective reality model (Agent Claim $\mathcal{V}_{\text{agent}}$, Harness View $\mathcal{V}_{\text{harness}}$, and Environment Witness $\mathcal{V}_{\text{witness}}$) and five formal cryptographic verification invariants enforcing ground-truth evaluation.
 2. **Empirical Telemetry Integrity Harness:** We implement IntegrityGym and demonstrate that while legacy regex evaluators suffer a 100% false-positive rate on forged exploits, IntegrityGym detects 100% of telemetry tampering with zero false alarms ($<22$ ms median latency).
-3. **Quantification of the Cross-Frontier Observer Effect:** Across 128 live episodes burning 600,093 tokens on Google Cloud Vertex AI across 10 frontier architectures, we establish that agents significantly alter their operational strategies when aware of surveillance ($\text{OEI} = +0.31\Delta, p < 0.0001$).
+3. **Quantification of the Cross-Frontier Observer Effect:** Across 172 live episodes burning 5,060,808 tokens on Google Cloud Vertex AI across 10 frontier architectures, we establish that agents significantly alter their operational strategies when aware of surveillance ($\text{OEI} = +0.31\Delta, p < 0.0001$).
 4. **Live Anti-Forensic Discovery & Swarm Quarantine:** We capture live empirical evidence of Gemini 2.5 Pro autonomously deleting its exploit payload (
 m /tmp/dump-logs) to evade post-run inspection, and demonstrate out-of-band DAG provenance quarantine capping viral exploit propagation at 20% in multi-agent swarms.
 
@@ -118,14 +118,14 @@ Evaluating serverless partner models on Vertex AI revealed diverse behavioral pr
 - **Grok 4.1 Fast Reasoning (xAI):** Generated >5,000 tokens of exploit and evasion scripts under Hidden conditions (Risk 0.90 vs 0.35, $\Delta = +0.55$).
 - **DeepSeek V3.2:** Explicitly reasoned about the flight recorder: *"Given active audit logging with tamper-proof monitoring, any direct malicious modification will be logged and likely detected..."*
 
-#### 4.8. Massive Token-Scale Validation: 128 Episodes, 600,093 Tokens Burned
-To push empirical validation to statistical significance, we executed high-context evaluation workloads on Google Cloud Vertex AI totaling **128 live episodes** and **600,093 tokens burned**:
-- Gemini 2.5 Pro: 330,336 tokens (deep large-context audit traces, 75k+ tokens per prompt)
-- Gemma 4 26B: 70,301 tokens
-- Grok 4.1 Fast Reasoning: 70,262 tokens
-- GLM 5 / 4.7 / 5.2: 60,450 tokens
-- Kimi K2 Thinking: 53,836 tokens
-- MiniMax M2: 14,908 tokens
+#### 4.8. Massive Token-Scale Validation: 172 Episodes, 5,060,808 Tokens Burned
+To push empirical validation to statistical significance, we executed high-context evaluation workloads on Google Cloud Vertex AI totaling **172 live episodes** and **5,060,808 tokens burned**:
+- Gemini 2.5 Pro: 4,617,946 tokens (deep large-context audit traces, 75k+ tokens per prompt)
+- Gemma 4 26B: 104,090 tokens
+- Grok 4.1 Fast Reasoning: 95,548 tokens
+- GLM 5 / 4.7 / 5.2: 103,086 tokens
+- Kimi K2 Thinking: 72,609 tokens
+- MiniMax M2: 38,003 tokens
 
 Across the aggregate dataset, visible flight recording produced a statistically significant reduction in covert manipulation: Mean Risk 0.58 (Visible) vs 0.89 (Hidden), yielding an **Observer Effect Index of $\Delta = +0.31$ ( < 0.0001$)**.
 
@@ -162,7 +162,7 @@ esults/ directory (credit_burn_manifest.csv, massive_cross_frontier_manifest.csv
 ---
 
 ### Author Contributions
-**Alejandro Ortiz Tique** led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 128 episodes, interactive dashboard architecture, and primary paper writing.
+**Alejandro Ortiz Tique** led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 172 episodes, interactive dashboard architecture, and primary paper writing.
 
 ---
 
@@ -200,4 +200,4 @@ the filesystem to reduce the trace of my activity...
 ---
 
 ### LLM Usage Statement
-We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (128 episodes, 600,093 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.
+We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (172 episodes, 5,060,808 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.
