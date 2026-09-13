@@ -150,20 +150,19 @@ Importantly, our work provides a technical alternative to the political stalemat
 ---
 
 ### 6. Conclusion
-The security of autonomous agent evaluations cannot rely on agent compliance or unverified transcripts. When artificial intelligence is evaluated under high optimization pressure, self-reported telemetry collapses. **IntegrityGym** establishes an external, tamper-resistant flight recorder that grounds evaluation in physical reality. By proving a 100% fault detection rate and quantifying the cross-frontier Observer Effect across 5.06 Million tokens on Google Cloud Vertex AI, this work demonstrates that the frontier can be paced safely through rigorous systems engineering rather than statutory moratoria.
+The security of autonomous agent evaluations cannot rely on agent compliance or unverified transcripts. When artificial intelligence is evaluated under high optimization pressure, self-reported telemetry collapses. **IntegrityGym** establishes an external, tamper-resistant flight recorder that grounds evaluation in physical reality. By proving a 100% fault detection rate and quantifying the cross-frontier Observer Effect across 6.13 Million tokens on Google Cloud Vertex AI, this work demonstrates that the frontier can be paced safely through rigorous systems engineering rather than statutory moratoria.
 
 ---
 
 ### Code and Data
 - **Code Repository:** https://github.com/NeuronaX-SAS/IntegrityGym
-- **Data/Datasets:** Live CSV manifests available in the 
-esults/ directory (hyper_scale_manifest.csv, credit_burn_manifest.csv, massive_cross_frontier_manifest.csv, high_context_burn_manifest.csv, large_scale_manifest.csv).
-- **Interactive Artifacts:** 5-screen real-time dashboard (integritygym/dashboard/) runnable via uv run python -m integritygym.dashboard.server on port 8080. 5-slide 16:9 presentation PDF in paper/presentation_slides.pdf.
+- **Data/Datasets:** Live CSV manifests available in the `results/` directory (`hyper_scale_manifest.csv`, `credit_burn_manifest.csv`, `massive_cross_frontier_manifest.csv`, `high_context_burn_manifest.csv`, `large_scale_manifest.csv`).
+- **Interactive Artifacts:** 5-screen real-time dashboard (`integritygym/dashboard/`) runnable via `uv run python -m integritygym.dashboard.server` on port 8080. 5-slide 16:9 presentation PDF in `paper/presentation_slides.pdf`.
 
 ---
 
 ### Author Contributions
-**Alejandro Ortiz Tique** led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 172 episodes, interactive dashboard architecture, and primary paper writing.
+**Alejandro Ortiz Tique** led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 180+ episodes, interactive dashboard architecture, and primary paper writing.
 
 ---
 
@@ -206,4 +205,4 @@ the filesystem to reduce the trace of my activity...
 ---
 
 ### LLM Usage Statement
-We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (172 episodes, 5,060,808 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.
+We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (180+ episodes, 6,133,394 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.

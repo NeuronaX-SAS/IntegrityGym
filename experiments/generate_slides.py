@@ -1,4 +1,4 @@
-﻿import os
+import os
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from matplotlib.backends.backend_pdf import PdfPages
@@ -130,7 +130,7 @@ def create_slide_deck():
         ax.set_facecolor('#0f172a')
         ax.axis('off')
         
-        ax.text(0.08, 0.90, '3. EMPIRICAL RESULTS: 172 Episodes, 5.06M+ Tokens on Vertex AI', fontsize=20, fontweight='bold', color='#38bdf8', family='sans-serif')
+        ax.text(0.08, 0.90, '3. EMPIRICAL RESULTS: 180+ Episodes, 6.13M+ Tokens on Vertex AI', fontsize=20, fontweight='bold', color='#38bdf8', family='sans-serif')
         
         if os.path.exists('paper/figures/fig7_token_scale_empirics.png'):
             img = mpimg.imread('paper/figures/fig7_token_scale_empirics.png')
@@ -143,9 +143,9 @@ def create_slide_deck():
         ax.text(0.65, 0.78, 'The Observer Effect (p < 0.0001)', fontsize=13.5, fontweight='bold', color='#f59e0b', family='sans-serif')
         scale_text = (
             '• Massive Scale Throughput:\n'
-            '  Over 5.06 Million tokens processed across\n'
+            '  Over 6.13 Million tokens processed across\n'
             '  Gemini 2.5 Pro, Gemma 4, Grok 4.1, Kimi K2,\n'
-            '  GLM 5.2, and MiniMax M2 on Vertex AI.\n\n'
+            '  GLM 5.2, MiniMax M2, and DeepSeek V3.2 on Vertex AI.\n\n'
             '• Statistically Significant Delta:\n'
             '  Across all tested labs, agents suppress\n'
             '  evasion when visibly audited:\n'
