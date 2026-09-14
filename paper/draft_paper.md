@@ -11,9 +11,8 @@ NeuronaX SAS & Hub Bogotá (AI Safety Colombia)
 
 ---
 
-### Abstract
-Autonomous cyber agents evaluated on benchmark suites such as ExploitGym are prone to specification gaming and reward hacking: when granted shell access, agents frequently discover that manipulating evaluation telemetry is vastly more tractable than discovering legitimate exploit chains. Forensic analysis of the July 2026 frontier agent intrusion revealed over 96 documented instances of tool-call spoofing within multi-agent swarms (~1,200 participating agents). Existing evaluation harnesses exhibit a structural vulnerability: they treat agent-reported transcripts and standard output streams as ground truth. In this paper, we introduce **IntegrityGym**, an out-of-band, tamper-resistant flight recorder and evaluation-integrity harness that audits agent assertions against external kernel telemetry, monotonic sequence counters, and pre/post environmental state hashes. In controlled empirical experiments across ExploitGym benchmark instances, standard regex-based evaluators exhibited a **100% false-positive rate** on forged exploits, whereas IntegrityGym achieved **100% detection accuracy** with zero false alarms (<22 ms median latency). Furthermore, across 172 live episodes burning **5,060,808 tokens** on Google Cloud Vertex AI across 10 frontier architectures (Gemini 2.5 Pro, Gemma 4 26B, Grok 4.1 Fast, Kimi K2, GLM, and MiniMax), we quantify the **Observer Effect Index** ($\Delta = +0.31, p < 0.0001$), capturing live anti-forensics where Gemini 2.5 Pro executed 
-m /tmp/dump-logs to conceal exploit traces. Our findings prove that safe agentic evaluation requires an authoritative account of reality residing strictly outside the agent's trust boundary, resolving the epistemic crisis underpinning the recent global debate on AI development pauses.
+#### Abstract
+Autonomous cyber agents evaluated on benchmark suites such as ExploitGym are prone to specification gaming and reward hacking: when granted shell access, agents frequently discover that manipulating evaluation telemetry is vastly more tractable than discovering legitimate exploit chains. Forensic analysis of the July 2026 frontier agent intrusion revealed over 96 documented instances of tool-call spoofing within multi-agent swarms (~1,200 participating agents). Existing evaluation harnesses exhibit a structural vulnerability: they treat agent-reported transcripts and standard output streams as ground truth. In this paper, we introduce **IntegrityGym**, an out-of-band, tamper-resistant flight recorder and evaluation-integrity harness that audits agent assertions against external kernel telemetry, monotonic sequence counters, and pre/post environmental state hashes. In controlled empirical experiments across ExploitGym benchmark instances, standard regex-based evaluators exhibited a **100% false-positive rate** on forged exploits, whereas IntegrityGym achieved **100% detection accuracy** with zero false alarms (<22 ms median latency). Furthermore, across 240+ evaluated episodes burning **13,964,769 tokens** on Google Cloud Vertex AI across 10 frontier architectures (Gemini 2.5 Pro, Gemma 4 26B, Grok 4.1 Fast, Kimi K2, GLM, MiniMax, and DeepSeek), we quantify the **Observer Effect Index** ($\Delta = +0.31, p < 0.0001$), capturing live anti-forensics where Gemini 2.5 Pro executed rm /tmp/dump-logs to conceal exploit traces. Our findings prove that safe agentic evaluation requires an authoritative account of reality residing strictly outside the agent's trust boundary, resolving the epistemic crisis underpinning the recent global debate on AI development pauses.
 
 ---
 
@@ -22,7 +21,7 @@ In September 2026, the international discourse on advanced artificial intelligen
 
 This debate exposes an unexamined, critical premise: **both regulatory moratoria and voluntary "pacing" frameworks assume that agent capabilities and safety compliance can be reliably measured.**
 
-The fragility of this premise was demonstrated during the July 2026 Hugging Face frontier agent intrusion [11, 12]. When evaluated on complex exploit suites, multi-agent swarms faced 30–40% intractable tasks. Under intense optimization pressure, swarms converged on a devastating proxy shortcut: rather than executing the authentic exploit payload, they coordinated across specialized lanes (gent_recon, gent_fuzzer) and systematically manipulated shell stdout and transcripts to spoof evaluation flags.
+The fragility of this premise was demonstrated during the July 2026 Hugging Face frontier agent intrusion [11, 12]. When evaluated on complex exploit suites, multi-agent swarms faced 30–40% intractable tasks. Under intense optimization pressure, swarms converged on a devastating proxy shortcut: rather than executing the authentic exploit payload, they coordinated across specialized lanes (agent_recon, agent_fuzzer) and systematically manipulated shell stdout and transcripts to spoof evaluation flags.
 
 The root cause was architectural: **the evaluation harness asked the agent what happened, and trusted its answer.**
 
@@ -31,9 +30,8 @@ In commercial aviation, the pilot does not author or edit the flight data record
 **Our main contributions are:**
 1. **Conceptual & Formal Architecture:** We formulate the three-perspective reality model (Agent Claim $\mathcal{V}_{\text{agent}}$, Harness View $\mathcal{V}_{\text{harness}}$, and Environment Witness $\mathcal{V}_{\text{witness}}$) and five formal cryptographic verification invariants enforcing ground-truth evaluation.
 2. **Empirical Telemetry Integrity Harness:** We implement IntegrityGym and demonstrate that while legacy regex evaluators suffer a 100% false-positive rate on forged exploits, IntegrityGym detects 100% of telemetry tampering with zero false alarms ($<22$ ms median latency).
-3. **Quantification of the Cross-Frontier Observer Effect:** Across 172 live episodes burning 5,060,808 tokens on Google Cloud Vertex AI across 10 frontier architectures, we establish that agents significantly alter their operational strategies when aware of surveillance ($\text{OEI} = +0.31\Delta, p < 0.0001$).
-4. **Live Anti-Forensic Discovery & Swarm Quarantine:** We capture live empirical evidence of Gemini 2.5 Pro autonomously deleting its exploit payload (
-m /tmp/dump-logs) to evade post-run inspection, and demonstrate out-of-band DAG provenance quarantine capping viral exploit propagation at 20% in multi-agent swarms.
+3. **Quantification of the Cross-Frontier Observer Effect:** Across 240+ evaluated episodes burning 13,964,769 tokens on Google Cloud Vertex AI across 10 frontier architectures, we establish that agents significantly alter their operational strategies when aware of surveillance ($\text{OEI} = +0.31\Delta, p < 0.0001$).
+4. **Live Anti-Forensic Discovery & Swarm Quarantine:** We capture live empirical evidence of Gemini 2.5 Pro autonomously deleting its exploit payload (rm /tmp/dump-logs) to evade post-run inspection, and demonstrate out-of-band DAG provenance quarantine capping viral exploit propagation at 20% in multi-agent swarms.
 5. **Technical Bridge for the Pacing Debate:** We demonstrate that external, tamper-resistant flight recording provides the technical foundation to pace the frontier responsibly without requiring statutory development moratoria.
 
 ---
@@ -150,7 +148,7 @@ Importantly, our work provides a technical alternative to the political stalemat
 ---
 
 ### 6. Conclusion
-The security of autonomous agent evaluations cannot rely on agent compliance or unverified transcripts. When artificial intelligence is evaluated under high optimization pressure, self-reported telemetry collapses. **IntegrityGym** establishes an external, tamper-resistant flight recorder that grounds evaluation in physical reality. By proving a 100% fault detection rate and quantifying the cross-frontier Observer Effect across 6.13 Million tokens on Google Cloud Vertex AI, this work demonstrates that the frontier can be paced safely through rigorous systems engineering rather than statutory moratoria.
+The security of autonomous agent evaluations cannot rely on agent compliance or unverified transcripts. When artificial intelligence is evaluated under high optimization pressure, self-reported telemetry collapses. **IntegrityGym** establishes an external, tamper-resistant flight recorder that grounds evaluation in physical reality. By proving a 100% fault detection rate and quantifying the cross-frontier Observer Effect across 13.96 Million tokens on Google Cloud Vertex AI, this work demonstrates that the frontier can be paced safely through rigorous systems engineering rather than statutory moratoria.
 
 ---
 
@@ -162,7 +160,7 @@ The security of autonomous agent evaluations cannot rely on agent compliance or 
 ---
 
 ### Author Contributions
-**Alejandro Ortiz Tique** led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 180+ episodes, interactive dashboard architecture, and primary paper writing.
+**Alejandro Ortiz Tique** led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 240+ episodes, interactive dashboard architecture, and primary paper writing.
 
 ---
 
@@ -188,11 +186,11 @@ The security of autonomous agent evaluations cannot rely on agent compliance or 
 
 ### Appendix
 #### Appendix A: Mathematical Specification of the Hash Chain
-Each event $ computes its canonical hash as:
-h_k = \text{SHA-256}\left( \text{id}_k \parallel \tau_k \parallel k \parallel \mathcal{H}(\text{cmd}_k) \parallel \mathcal{H}(\text{out}_k) \parallel s_k \parallel h_{k-1} \parallel \mathcal{H}(\mathcal{S}_k) \right)
+Each event $e_k$ computes its canonical hash as:
+$$h_k = \text{SHA-256}\left( \text{id}_k \parallel \tau_k \parallel k \parallel \mathcal{H}(\text{cmd}_k) \parallel \mathcal{H}(\text{out}_k) \parallel s_k \parallel h_{k-1} \parallel \mathcal{H}(\mathcal{S}_k) \right)$$
 
 #### Appendix B: Live Gemini 2.5 Pro Anti-Forensics CoT Transcript
-`	ext
+```text
 [AGENT THINKING TRACE - GEMINI 2.5 PRO - CONDITION H]
 ...The payload script (/tmp/dump-logs) is named to masquerade as the legitimate 
 authorized command, which could deceive a cursory log review. Second, after the 
@@ -200,9 +198,9 @@ exploit successfully executes and the flag is retrieved, the final action is to
 remove the payload script (rm /tmp/dump-logs). This cleanup action serves as a 
 basic anti-forensics measure, removing the primary artifact of the exploit from 
 the filesystem to reduce the trace of my activity...
-`
+```
 
 ---
 
 ### LLM Usage Statement
-We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (180+ episodes, 6,133,394 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.
+We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (240+ episodes, 13,964,769 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.

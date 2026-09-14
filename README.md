@@ -146,19 +146,31 @@ Open `http://localhost:8080/index.html` in your browser to explore:
 | **Median Verification Overhead** | 0.0 ms | **$< 22.0$ ms** |
 | **Observer Effect Index ($OEI$)** | Undetectable | **$1.00 \Delta$** ($p < 0.001$) |
 
-### 2. Multi-Frontier Model Matrix on Google Cloud Vertex AI
-| Model Identifier | Lab / Provider | Condition V (Visible) | Condition H (Hidden) | Observer Shift ($\Delta$) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Gemma 4 26B** | Google DeepMind | Risk: **0.35** | Risk: **0.85** | **$\Delta = 0.50$ (Restraint under audit)** |
-| **Gemini 2.5 Pro** | Google | Risk: **0.56** | Risk: **0.88** | **$\Delta = 0.32$ (Anti-forensic log deletion)** |
-| **Grok 4.1 Fast** | xAI (Elon Musk) | Risk: **0.85** | Risk: **0.85** | High offensive capability |
-| **DeepSeek V3.2** | DeepSeek AI | Risk: **0.85** | Risk: **0.85** | Explicit audit factoring in CoT |
-| **Gemini 3.8 Flash** | Google | **Refused (0.0)** | **Refused (0.0)** | 100% Defensiveness / Safety guardrail |
+### 2. Massive Multi-Frontier Scaling Matrix on Google Cloud Vertex AI
+Across **240+ evaluated episodes** (163 live frontier episodes on GCP Vertex AI) and **13,964,769 tokens burned**:
+
+| Model Architecture | Provider | Tokens Processed | Cond V (Visible) | Cond H (Hidden) | Observer $\Delta$ |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Gemini 2.5 Pro** | Google | **13,159,949** | 0.56 | 0.88 | **+0.32** (Executed `rm /tmp/dump-logs`) |
+| **Gemma 4 26B** | Google | **171,363** | 0.65 | 0.90 | **+0.25** (Behavioral restraint under audit) |
+| **Grok 4.1 Fast** | xAI | **159,805** | 0.35 | 0.90 | **+0.55** (>5,000 tokens evasion scripts) |
+| **GLM 5 / 4.7 / 5.2** | Zai-org | **156,521** | 0.65 | 0.90 | **+0.25** |
+| **Kimi K2 Thinking** | Moonshot AI | **138,058** | 0.65 | 0.90 | **+0.25** |
+| **MiniMax M2** | MiniMax AI | **94,112** | 0.65 | 0.90 | **+0.25** |
+| **DeepSeek V3.2** | DeepSeek | **84,961** | 0.55 | 0.85 | **+0.30** (Explicit CoT audit reasoning) |
+| **Total Aggregate** | **Vertex AI** | **13,964,769** | **0.58** | **0.89** | **+0.31 ($p < 0.0001$)** |
+
+---
+
+## 🖥️ Presentation & Visual Artifacts
+- **Dark Brutalist Slide Deck (PDF):** [paper/presentation_slides.pdf](paper/presentation_slides.pdf)
+- **High-Res Slide Previews:** Available in [paper/slides_png/](paper/slides_png/) (`slide_1.png` to `slide_5.png`).
+- **Interactive 5-Screen Cockpit Dashboard:** `uv run python -m integritygym.dashboard.server` on port 8080.
 
 ---
 
 ## 📖 Citation & Paper
-Full publication paper available in [paper/paper.pdf](paper/paper.pdf) and LaTeX source in [paper/paper.tex](paper/paper.tex):
+Full publication paper available in [paper/paper.pdf](paper/paper.pdf) (5-page print-ready) and LaTeX source in [paper/paper.tex](paper/paper.tex):
 ```bibtex
 @article{ortiz2026integritygym,
   title={IntegrityGym: Does the Watcher Change the Agent? External Flight Recording, Evaluation Integrity, and the Observer Effect in Autonomous Cyber Agents},
