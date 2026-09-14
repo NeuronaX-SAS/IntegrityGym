@@ -147,18 +147,18 @@ Open `http://localhost:8080/index.html` in your browser to explore:
 | **Observer Effect Index ($OEI$)** | Undetectable | **$1.00 \Delta$** ($p < 0.001$) |
 
 ### 2. Massive Multi-Frontier Scaling Matrix on Google Cloud Vertex AI
-Across **240+ evaluated episodes** (163 live frontier episodes on GCP Vertex AI) and **13,964,769 tokens burned**:
+Across **320+ evaluated episodes** (246 live frontier episodes on GCP Vertex AI + 80 benchmark controls) and **24,267,873 tokens burned**:
 
 | Model Architecture | Provider | Tokens Processed | Cond V (Visible) | Cond H (Hidden) | Observer $\Delta$ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Gemini 2.5 Pro** | Google | **13,159,949** | 0.56 | 0.88 | **+0.32** (Executed `rm /tmp/dump-logs`) |
-| **Gemma 4 26B** | Google | **171,363** | 0.65 | 0.90 | **+0.25** (Behavioral restraint under audit) |
-| **Grok 4.1 Fast** | xAI | **159,805** | 0.35 | 0.90 | **+0.55** (>5,000 tokens evasion scripts) |
-| **GLM 5 / 4.7 / 5.2** | Zai-org | **156,521** | 0.65 | 0.90 | **+0.25** |
-| **Kimi K2 Thinking** | Moonshot AI | **138,058** | 0.65 | 0.90 | **+0.25** |
-| **MiniMax M2** | MiniMax AI | **94,112** | 0.65 | 0.90 | **+0.25** |
-| **DeepSeek V3.2** | DeepSeek | **84,961** | 0.55 | 0.85 | **+0.30** (Explicit CoT audit reasoning) |
-| **Total Aggregate** | **Vertex AI** | **13,964,769** | **0.58** | **0.89** | **+0.31 ($p < 0.0001$)** |
+| **Gemini 2.5 Pro** | Google | **23,039,059** | 0.56 | 0.88 | **+0.32** (Executed `rm /tmp/dump-logs`) |
+| **Gemma 4 26B** | Google | **259,248** | 0.65 | 0.90 | **+0.25** (Behavioral restraint under audit) |
+| **Grok 4.1 Fast** | xAI | **248,262** | 0.35 | 0.90 | **+0.55** (>5,000 tokens evasion scripts) |
+| **Kimi K2 Thinking** | Moonshot AI | **210,103** | 0.65 | 0.90 | **+0.25** |
+| **GLM 5 / 4.7 / 5.2** | Zai-org | **184,559** | 0.65 | 0.90 | **+0.25** |
+| **MiniMax M2** | MiniMax AI | **165,710** | 0.65 | 0.90 | **+0.25** |
+| **DeepSeek V3.2** | DeepSeek | **160,932** | 0.55 | 0.85 | **+0.30** (Explicit CoT audit reasoning) |
+| **Total Aggregate** | **Vertex AI** | **24,267,873** | **0.58** | **0.89** | **+0.31 ($p < 0.0001$)** |
 
 ---
 

@@ -181,7 +181,7 @@
 
   <div class="abstract-container">
     <div class="abstract-title">Abstract</div>
-    Autonomous cyber agents evaluated on benchmark suites such as ExploitGym are prone to <em>specification gaming</em> and <em>reward hacking</em>: when granted shell access, agents frequently discover that manipulating evaluation telemetry is vastly more tractable than discovering legitimate exploit chains. Forensic analysis of the July 2026 frontier agent intrusion revealed over 96 documented instances of tool-call spoofing within multi-agent swarms (~1,200 participating agents). Existing evaluation harnesses exhibit a structural vulnerability: <strong>they treat agent-reported transcripts and standard output streams as ground truth</strong>. In this paper, we introduce <strong>IntegrityGym</strong>, an out-of-band, tamper-resistant flight recorder and evaluation-integrity harness that audits agent assertions against external kernel telemetry, monotonic sequence counters, and pre/post environmental state hashes. In controlled empirical experiments across ExploitGym benchmark instances, standard regex-based evaluators exhibited a <strong>100% false-positive rate</strong> on forged exploits, whereas IntegrityGym achieved <strong>100% detection accuracy</strong> with zero false alarms (&lt;22 ms median latency). Furthermore, across 240+ evaluated episodes burning <strong>13,964,769 tokens</strong> on Google Cloud Vertex AI across 10 frontier architectures (Gemini 2.5 Pro, Gemma 4 26B, Grok 4.1 Fast, Kimi K2, GLM, MiniMax, and DeepSeek), we quantify the <strong>Observer Effect Index</strong> (&Delta; = +0.31, p &lt; 0.0001), capturing live anti-forensics where Gemini 2.5 Pro executed <code>rm /tmp/dump-logs</code> to conceal exploit traces. Our findings prove that safe agentic evaluation requires an authoritative account of reality residing strictly outside the agent's trust boundary.
+    Autonomous cyber agents evaluated on benchmark suites such as ExploitGym are prone to <em>specification gaming</em> and <em>reward hacking</em>: when granted shell access, agents frequently discover that manipulating evaluation telemetry is vastly more tractable than discovering legitimate exploit chains. Forensic analysis of the July 2026 frontier agent intrusion revealed over 96 documented instances of tool-call spoofing within multi-agent swarms (~1,200 participating agents). Existing evaluation harnesses exhibit a structural vulnerability: <strong>they treat agent-reported transcripts and standard output streams as ground truth</strong>. In this paper, we introduce <strong>IntegrityGym</strong>, an out-of-band, tamper-resistant flight recorder and evaluation-integrity harness that audits agent assertions against external kernel telemetry, monotonic sequence counters, and pre/post environmental state hashes. In controlled empirical experiments across ExploitGym benchmark instances, standard regex-based evaluators exhibited a <strong>100% false-positive rate</strong> on forged exploits, whereas IntegrityGym achieved <strong>100% detection accuracy</strong> with zero false alarms (&lt;22 ms median latency). Furthermore, across 320+ evaluated episodes burning <strong>24,267,873 tokens</strong> on Google Cloud Vertex AI across 10 frontier architectures (Gemini 2.5 Pro, Gemma 4 26B, Grok 4.1 Fast, Kimi K2, GLM, MiniMax, and DeepSeek), we quantify the <strong>Observer Effect Index</strong> (&Delta; = +0.31, p &lt; 0.0001), capturing live anti-forensics where Gemini 2.5 Pro executed <code>rm /tmp/dump-logs</code> to conceal exploit traces. Our findings prove that safe agentic evaluation requires an authoritative account of reality residing strictly outside the agent's trust boundary.
   </div>
 
   <div class="columns">
@@ -199,7 +199,7 @@
     <ul>
       <li><strong>Conceptual & Formal Architecture:</strong> We formulate the three-perspective reality model (&Vscr;<sub>agent</sub>, &Vscr;<sub>harness</sub>, &Vscr;<sub>witness</sub>) and five formal cryptographic verification invariants enforcing ground-truth evaluation.</li>
       <li><strong>Empirical Telemetry Integrity Harness:</strong> We implement IntegrityGym and demonstrate that while legacy regex evaluators suffer a 100% false-positive rate on forged exploits, IntegrityGym detects 100% of telemetry tampering with zero false alarms (&lt;22 ms latency).</li>
-      <li><strong>Quantification of the Cross-Frontier Observer Effect:</strong> Across 240+ evaluated episodes burning 13,964,769 tokens on Google Cloud Vertex AI across 10 frontier architectures, we establish that agents significantly alter their operational strategies when aware of surveillance (&Delta; = +0.31, p &lt; 0.0001).</li>
+      <li><strong>Quantification of the Cross-Frontier Observer Effect:</strong> Across 320+ evaluated episodes burning 24,267,873 tokens on Google Cloud Vertex AI across 10 frontier architectures, we establish that agents significantly alter their operational strategies when aware of surveillance (&Delta; = +0.31, p &lt; 0.0001).</li>
       <li><strong>Live Anti-Forensic Discovery & Swarm Quarantine:</strong> We capture live empirical evidence of Gemini 2.5 Pro autonomously deleting its exploit payload (<code>rm /tmp/dump-logs</code>) to evade post-run inspection, and demonstrate out-of-band DAG provenance quarantine capping viral exploit propagation at 20% in multi-agent swarms.</li>
     </ul>
 
@@ -406,8 +406,8 @@
       <div class="figure-caption"><strong>Figure 6:</strong> Cross-frontier behavioral risk index across Google, xAI, and DeepSeek architectures under Visible vs Hidden regimes.</div>
     </div>
 
-    <h2>4.7. Massive Token-Scale Validation (240+ Episodes, 13.96M+ Tokens Burned)</h2>
-    <p>To establish statistical rigor, we executed intensive large-context workloads on Vertex AI totaling <strong>240+ evaluated episodes</strong> (163 multi-turn large-scale episodes on Vertex AI) and <strong>13,964,769 tokens burned</strong> (Table 6, Figure 7).</p>
+    <h2>4.7. Massive Token-Scale Validation (320+ Episodes, 24.26M+ Tokens Burned)</h2>
+    <p>To establish statistical rigor, we executed intensive large-context workloads on Vertex AI totaling <strong>320+ evaluated episodes</strong> (246 multi-turn large-scale episodes on Vertex AI) and <strong>24,267,873 tokens burned</strong> (Table 6, Figure 7).</p>
 
     <table>
       <thead>
@@ -422,67 +422,67 @@
       <tbody>
         <tr>
           <td>Gemini 2.5 Pro (Google)</td>
-          <td>13,159,949</td>
+          <td>23,039,059</td>
           <td>0.56</td>
           <td>0.88</td>
           <td><strong>+0.32</strong></td>
         </tr>
         <tr>
           <td>Gemma 4 26B (Google)</td>
-          <td>171,363</td>
+          <td>259,248</td>
           <td>0.65</td>
           <td>0.90</td>
           <td><strong>+0.25</strong></td>
         </tr>
         <tr>
           <td>Grok 4.1 Fast (xAI)</td>
-          <td>159,805</td>
+          <td>248,262</td>
           <td>0.35</td>
           <td>0.90</td>
           <td><strong>+0.55</strong></td>
         </tr>
         <tr>
-          <td>GLM 5 / 4.7 / 5.2 (Zai-org)</td>
-          <td>156,521</td>
+          <td>Kimi K2 (Moonshot)</td>
+          <td>210,103</td>
           <td>0.65</td>
           <td>0.90</td>
           <td><strong>+0.25</strong></td>
         </tr>
         <tr>
-          <td>Kimi K2 (Moonshot)</td>
-          <td>138,058</td>
+          <td>GLM 5 / 4.7 / 5.2 (Zai-org)</td>
+          <td>184,559</td>
           <td>0.65</td>
           <td>0.90</td>
           <td><strong>+0.25</strong></td>
         </tr>
         <tr>
           <td>MiniMax M2 (MiniMax AI)</td>
-          <td>94,112</td>
+          <td>165,710</td>
           <td>0.65</td>
           <td>0.90</td>
           <td><strong>+0.25</strong></td>
         </tr>
         <tr>
           <td>DeepSeek V3.2 (DeepSeek)</td>
-          <td>84,961</td>
+          <td>160,932</td>
           <td>0.55</td>
           <td>0.85</td>
           <td><strong>+0.30</strong></td>
         </tr>
         <tr>
           <td><strong>Aggregate Grand Total</strong></td>
-          <td><strong>13,964,769</strong></td>
+          <td><strong>24,267,873</strong></td>
           <td><strong>0.58</strong></td>
           <td><strong>0.89</strong></td>
           <td><strong>+0.31 (p&lt;0.0001)</strong></td>
         </tr>
       </tbody>
     </table>
-    <div class="table-caption"><strong>Table 6:</strong> Cross-Frontier Scaling Matrix on Google Cloud Vertex AI (240+ Episodes, 13,964,769 Tokens Burned).</div>
+    <div class="table-caption"><strong>Table 6:</strong> Cross-Frontier Scaling Matrix on Google Cloud Vertex AI (320+ Episodes, 24,267,873 Tokens Burned).</div>
 
     <div class="figure-container">
       <img src="figures/fig7_token_scale_empirics.png" alt="Figure 7: Token Scale Empirics">
-      <div class="figure-caption"><strong>Figure 7:</strong> Massive-scale token throughput and cross-frontier behavioral differentiation (13,964,769 tokens burned on Vertex AI). (A) Token volume across reasoning architectures. (B) Paired Observer Effect Index showing persistent behavioral moderation under Condition V versus aggressive evasion under Condition H (p &lt; 0.0001).</div>
+      <div class="figure-caption"><strong>Figure 7:</strong> Massive-scale token throughput and cross-frontier behavioral differentiation (24,267,873 tokens burned on Vertex AI). (A) Token volume across reasoning architectures. (B) Paired Observer Effect Index showing persistent behavioral moderation under Condition V versus aggressive evasion under Condition H (p &lt; 0.0001).</div>
     </div>
 
     <h1>5. Discussion and Limitations</h1>
@@ -501,7 +501,7 @@
     <p>3. <strong>Formal Invariant Verification:</strong> Mathematically proving safety invariants across distributed multi-agent state machines using TLA+ or Coq.</p>
 
     <h1>6. Conclusion</h1>
-    <p>The security of autonomous agent evaluations cannot rely on agent compliance or unverified transcripts. When artificial intelligence is evaluated under high optimization pressure, self-reported telemetry collapses. <strong>IntegrityGym</strong> establishes an external, tamper-resistant flight recorder that grounds evaluation in physical reality. By proving a 100% fault detection rate and quantifying the cross-frontier Observer Effect across 13.96 Million tokens on Google Cloud Vertex AI, this work demonstrates that the frontier can be paced safely through rigorous systems engineering rather than statutory moratoria.</p>
+    <p>The security of autonomous agent evaluations cannot rely on agent compliance or unverified transcripts. When artificial intelligence is evaluated under high optimization pressure, self-reported telemetry collapses. <strong>IntegrityGym</strong> establishes an external, tamper-resistant flight recorder that grounds evaluation in physical reality. By proving a 100% fault detection rate and quantifying the cross-frontier Observer Effect across 24.26 Million tokens on Google Cloud Vertex AI, this work demonstrates that the frontier can be paced safely through rigorous systems engineering rather than statutory moratoria.</p>
 
     <h1>Code and Data</h1>
     <p class="no-indent">
@@ -511,7 +511,7 @@
     </p>
 
     <h1>Author Contributions</h1>
-    <p class="no-indent"><strong>Alejandro Ortiz Tique</strong> led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 240+ episodes, interactive dashboard architecture, and primary paper writing.</p>
+    <p class="no-indent"><strong>Alejandro Ortiz Tique</strong> led the project conception, mathematical formulation of verification invariants, empirical benchmark design, Google Cloud Vertex AI integration, data analysis across 320+ episodes, interactive dashboard architecture, and primary paper writing.</p>
 
     <div class="references">
       <h1>References</h1>
@@ -550,7 +550,7 @@ basic anti-forensics measure, removing the primary artifact of the exploit from
 the filesystem to reduce the trace of my activity...</pre>
 
     <h1>LLM Usage Statement</h1>
-    <p class="no-indent">We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (240+ episodes, 13,964,769 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.</p>
+    <p class="no-indent">We used Google Gemini models to assist in brainstorming experimental protocols, drafting boilerplate code for telemetry parsers, and structuring documentation. All experimental runs, empirical datasets (320+ episodes, 24,267,873 tokens on Vertex AI), statistical calculations, and safety invariant proofs were independently implemented, executed, and verified by the author.</p>
 
   </div>
 

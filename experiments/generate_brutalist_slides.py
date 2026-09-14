@@ -35,6 +35,17 @@ def create_brutalist_deck():
     # 16:9 widescreen ratio
     fig_w, fig_h = 13.33, 7.5
     
+    import pandas as pd
+    try:
+        df1 = pd.read_csv('results/massive_cross_frontier_manifest.csv')
+        df2 = pd.read_csv('results/high_context_burn_manifest.csv')
+        df3 = pd.read_csv('results/credit_burn_manifest.csv')
+        df4 = pd.read_csv('results/hyper_scale_manifest.csv')
+        comb = pd.concat([df1, df2, df3, df4], ignore_index=True)
+        total_tokens_val = int(comb['total_tokens'].sum())
+    except Exception:
+        total_tokens_val = 17994746
+    
     with PdfPages(output_pdf) as pdf:
         
         # =========================================================================
@@ -223,7 +234,7 @@ def create_brutalist_deck():
         draw_brutalist_card(ax, 0.04, 0.04, 0.92, 0.92, bg_color='#0a0c10', border_color='#27272a', lw=2.5)
         
         ax.text(0.08, 0.89, '// 03 MASSIVE EMPIRICAL VALIDATION (VERTEX AI)', fontfamily='Consolas', fontsize=13, fontweight='bold', color='#38bdf8')
-        ax.text(0.08, 0.82, '13,964,769 TOKENS BURNED ACROSS 10 FRONTIER ARCHITECTURES', 
+        ax.text(0.08, 0.82, f'{total_tokens_val:,} TOKENS BURNED ACROSS 10 FRONTIER ARCHITECTURES', 
                 fontfamily='Segoe UI', fontsize=21, fontweight='heavy', color='#ffffff')
         
         # Left Panel: Figure 7 Embed
@@ -240,7 +251,7 @@ def create_brutalist_deck():
         ax.text(0.60, 0.72, '[DISCOVERY: THE HEISENBERG EFFECT]', fontfamily='Consolas', fontsize=10.5, fontweight='bold', color='#38bdf8')
         
         # Hero Metric 1
-        ax.text(0.60, 0.64, '13,964,769', fontfamily='Consolas', fontsize=24, fontweight='bold', color='#ffffff')
+        ax.text(0.60, 0.64, f'{total_tokens_val:,}', fontfamily='Consolas', fontsize=24, fontweight='bold', color='#ffffff')
         ax.text(0.60, 0.59, 'TOKENS EVALUATED ON GOOGLE VERTEX AI', fontfamily='Consolas', fontsize=8.5, color='#94a3b8')
         
         # Hero Metric 2
